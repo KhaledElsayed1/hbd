@@ -1,0 +1,27 @@
+.bd{background:radial-gradient(ellipse at 50% 78%,rgba(255,150,80,.14),transparent 58%),radial-gradient(ellipse at 50% 0%,rgba(122,27,56,.4),transparent 62%),linear-gradient(to bottom,rgba(21,5,9,0),rgba(21,5,9,.97) 22%)}
+.bd-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 62%,rgba(255,170,90,.32),rgba(255,120,120,.1) 45%,transparent 70%);transition:opacity 1.6s ease}
+.candles{display:flex;align-items:flex-end;justify-content:center;gap:clamp(28px,9vw,84px)}
+.candle{position:relative;width:clamp(52px,16vw,88px);padding:0;border:0;background:none;overflow:visible;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .3s}
+.candle:not(:disabled):hover{transform:translateY(-3px)}
+.candle:disabled{cursor:default}
+.candle svg{display:block;width:100%;height:auto;overflow:visible}
+.plate{margin:-6px auto 0;width:min(560px,86vw);height:22px;border-radius:50%;background:radial-gradient(ellipse,rgba(216,182,118,.55),rgba(216,182,118,.12) 55%,transparent 72%)}
+.flame{transform-box:fill-box;transform-origin:50% 100%;animation:bd-flick var(--d,1.4s) ease-in-out infinite alternate;filter:drop-shadow(0 0 6px rgba(255,170,70,.9));transition:opacity .5s,transform .6s}
+.flame.off{animation:none;opacity:0;transform:scale(.3,.05)}
+@keyframes bd-flick{0%{transform:scale(1,1) skewX(0)}25%{transform:scale(.95,1.06) skewX(-2deg)}50%{transform:scale(1.03,.96) skewX(1.5deg)}75%{transform:scale(.97,1.04) skewX(-1deg)}100%{transform:scale(1.02,1.02) skewX(2deg)}}
+.glow{position:absolute;left:50%;width:260%;aspect-ratio:1;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,196,110,.5),rgba(255,140,70,.16) 40%,transparent 68%);transform:translate(-50%,-50%);animation:bd-glow var(--d,1.4s) ease-in-out infinite alternate;transition:opacity 1s}
+.glow.off{opacity:0;animation:none}
+@keyframes bd-glow{from{opacity:.75;transform:translate(-50%,-50%) scale(.94)}to{opacity:1;transform:translate(-50%,-50%) scale(1.06)}}
+.ember{animation:bd-ember 3s ease-out forwards}
+@keyframes bd-ember{0%{opacity:1}100%{opacity:0}}
+.smoke{position:absolute;left:50%;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:radial-gradient(circle,rgba(235,230,230,.75),transparent 70%);opacity:0;filter:blur(3px);pointer-events:none;animation:bd-smoke 3.6s ease-out forwards}
+@keyframes bd-smoke{0%{opacity:0;transform:translate(0,0) scale(.5)}15%{opacity:.7}100%{opacity:0;transform:translate(var(--sx,10px),-150px) scale(3.4)}}
+.gift-frame{padding:3px;border-radius:22px;background:linear-gradient(135deg,#f6e2b3,#d8b676 35%,#b3254a 70%,#d8b676);box-shadow:0 0 40px rgba(216,182,118,.55),0 0 120px rgba(179,37,74,.4);animation:bd-pulse 3.2s ease-in-out infinite alternate}
+@keyframes bd-pulse{from{box-shadow:0 0 28px rgba(216,182,118,.4),0 0 90px rgba(179,37,74,.3)}to{box-shadow:0 0 56px rgba(216,182,118,.8),0 0 150px rgba(179,37,74,.55)}}
+.gift-inner{border-radius:20px;background:#1a0610;padding:6px}
+.gift-img{display:block;width:auto;height:auto;max-width:min(88vw,720px);max-height:54svh;object-fit:contain;border-radius:16px}
+.bd-heart{position:absolute;bottom:-40px;opacity:0;animation:bd-float var(--dur,12s) linear infinite}
+@keyframes bd-float{0%{transform:translate(0,0) rotate(-8deg);opacity:0}10%{opacity:.8}50%{transform:translate(26px,-55vh) rotate(6deg)}100%{transform:translate(-18px,-112vh) rotate(-6deg);opacity:0}}
+.cursor{display:inline-block;width:1px;margin-left:2px;background:#d8b676;animation:bd-blink 1s steps(1) infinite}
+@keyframes bd-blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.flame,.glow,.gift-frame,.bd-heart,.cursor{animation:none}.smoke{display:none}}

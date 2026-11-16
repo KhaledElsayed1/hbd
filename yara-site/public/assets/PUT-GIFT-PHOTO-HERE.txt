@@ -1,0 +1,1 @@
+Put your gift photo here and name it: gift-surprise.jpg   (or change the path in src/data/birthday.ts)
